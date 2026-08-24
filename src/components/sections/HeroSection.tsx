@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { resumeData } from "@/data/resume";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -17,7 +17,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
@@ -65,7 +65,7 @@ export function HeroSection() {
               Available for Hire
             </motion.span>
             <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-              Hi, I'm <br />
+              Hi, I&apos;m <br />
               <span className="text-gradient leading-tight block mt-2">
                 {resumeData.personalInfo.name.split(" ")[0]} {resumeData.personalInfo.name.split(" ")[1]}
               </span>
@@ -83,7 +83,7 @@ export function HeroSection() {
               href="#contact"
               className="group flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_0_20px_rgba(var(--primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--primary),0.5)]"
             >
-              Let's Talk
+              Let&apos;s Talk
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </Link>
             <Link
@@ -147,7 +147,17 @@ function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
   );
 }
 
-function FloatingStat({ delay, top, right, bottom, left, label, value }: any) {
+interface FloatingStatProps {
+  delay: number;
+  top?: string;
+  right?: string;
+  bottom?: string;
+  left?: string;
+  label: string;
+  value: string;
+}
+
+function FloatingStat({ delay, top, right, bottom, left, label, value }: FloatingStatProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.9 }}

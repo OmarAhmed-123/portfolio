@@ -52,7 +52,7 @@ export function ContactSection() {
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            I'm currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            I&apos;m currently open for new opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
           </p>
         </motion.div>
 
